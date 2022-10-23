@@ -17,5 +17,5 @@ class Song(models.Model):
 
 
 class Lyric(models.Model):
-    content = models.TextField(_('Lyrics'))
+    content = models.TextField('Lyrics')
     song = models.ForeignKey('Song', on_delete=models.CASCADE)
