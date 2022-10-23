@@ -14,6 +14,7 @@ class Song(models.Model):
     release_date = models.DateTimeField('date released')
     likes = models.IntegerField(default=0)
     artiste = models.ForeignKey('Artiste', on_delete=models.CASCADE)
+    #artise_id is added automatically
 
 
 class Lyric(models.Model):
