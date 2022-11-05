@@ -1,5 +1,14 @@
-from django.http import HttpResponse
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import viewsets
+from .models import Song
+from .serializers import SongSerializer
 
 # Create your views here.
-def  index(request):
-    return HttpResponse("Hello! This is my Zuri django musicapp project")
+class SongViewSet(viewsets.ModelViewSet):
+    queryset = Song.objects.all()
+    serializer_class = SongSerializer
+    
+    @action(detail=True, methods=['post', 'delete', 'put'])
+    def set_password(self, request, pk=None):
+        song = self.get_object()
